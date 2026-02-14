@@ -117,7 +117,14 @@ alias sc="source ~/.zshrc"
 alias gs="git status"
 alias g="git"
 alias code="cursor"
-alias vf='vi $(fzf)'
+
+vf() {
+    local file
+    file=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --height 80% --layout=reverse --border)
+    if [[ -n "$file" ]]; then
+        vi "$file"
+    fi
+}
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
 eval "$(zoxide init zsh)"
