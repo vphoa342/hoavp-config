@@ -115,7 +115,9 @@ alias oh="cd ~"
 alias vi="nvim"
 alias sc="source ~/.zshrc"
 alias gs="git status"
+alias g="git"
 alias code="cursor"
+alias vf='vi $(fzf)'
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
 eval "$(zoxide init zsh)"
